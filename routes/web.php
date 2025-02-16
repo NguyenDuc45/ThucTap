@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\SanPhamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource("sanphams", SanPhamController::class);
+
+Route::get('/', [MailController::class, 'index']);
+
+Route::post('send-mail', [MailController::class, 'sendMail']);
